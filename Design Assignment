@@ -1,0 +1,228 @@
+Design Document
+Methods and Tools in SW Development
+
+I.	Group Information
+Group Number: 25
+Group Member names/netIDs:
+Jaxon Talbert, Seth Hazlewood, Matthew Robinson, Jeremy Haung
+jrt524, sah725, mbr253, jbh695
+
+
+II.	What classes are you going to have? Explain why.
+Book Class –  used to track and mange the books stored in the database and all their subsequent related information
+Customer Class – used to track and manage the users stored in a database and all their subsequent information
+Shopping Cart Class – used to handle the shopping cart and its related processes
+Inventory class – used to handle browsing the books database as well as related functions such as decreasing quantity in stock after purchases have been made
+
+ 
+II. Detailed Class Diagrams
+
+Book Class
+Title, author, ISBN, genre, price, quantity,
+getTitle, getAuthor, getISBN, getGenre, getPrice, getQuantity, getBook, Book
+
+●	 getTitle – gets book title
+●	 getAuthor – gets book’s author
+●	 getISBN – get book’s ISBN
+●	 getGenre – get book’s genre
+●	 getPrice – get book’s price
+●	 getQuantity – get quantity of books in stock
+●	 decreaseQuantity – reduces book quantity depending on how many books are bought
+●	 getBook – get a books info
+●	 Book - constructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+II. Detailed Class Diagrams
+
+Customer Class
+First name, last name, customer ID, shipping address, username, password, phone number, email
+getFirstName, getLastName, getCustomerID, getShippingAddress, getUsername, getPassword, getPhoneNumber, setFirstName, setLastName, setCustomerID, setShippingAddress,
+setUsername, setPassword, setPhoneNumber, forgotPassword, getEmail, setEmail, login, logout, purchaseHistory, addPurchaseHistory, deleteAccount, getPaymentInformation
+setPaymentInformation
+getFirstName – retrieves user’s first name from the database
+getLastName – retrieves user’s last name from the database
+getCustomerID – retrieves user’s customer ID from the database
+getShippingAddress – retrieves user’s shipping address from the database
+getUsername – retrieves user’s username from the database
+getPassword – retrieves user’s password from the database
+getPhoneNumber – retrieves user’s phone number from the database
+setFirstName – sets the user’s first name in the database
+setLastName – sets the user’s last name in the database
+setCustomerID – sets the users customer ID (this will be a unique id likely generated through incrementation)
+setShippingAddress – sets the user’s shipping address in the database
+setUsername – sets the user’s user name in the database
+setPassword – sets the user’s password in the database
+setPhoneNumber – sets the user’s phone number in the database
+forgotPassword – asks for username and email to verify identity then allows user to reset password
+getEmail – retrieves the user’s email from the database
+setEMail – sets the user’s email in the database
+login – asks for username and password and verifies account with the database to log a user in 
+logout – returns user to the login menu screen options
+purchaseHistory – retrieves the user’s purchase history from the database
+addPurchaseHistory – adds to the user’s purchase history when an order is paid for 
+deleteAccount – deletes the user’s account and all stored information related to them
+getPaymentInformation – retrieves the user’s payment info from the database
+setPaymentInformation – sets the user payment info in the databse
+ 
+II. Detailed Class Diagrams
+
+Shopping Cart Class
+N/A
+addToShoppingCart, viewShoppingCart,  checkOut, remove, totalPrice
+
+addToShoppingCart – adds a book to the user’s shopping cart; also lets user set quantity they wish to purchase
+viewShoppinCart – displays books in the user’s shopping cart along with the quantity they are purchasing
+checkOut – confirms with the user they are ready to purchase their order along with confirming they want to use their preexisting stored payment info
+remove – allows a user to remove a book from their cart
+totalPrice – calculates the total of all books in the users cart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+II. Detailed Class Diagrams
+
+Inventory Class
+N/A
+ search,  decrease, checkStock, searchCategory, viewAll
+
+
+search – browses database and returns everything matching the users keyword
+decrease – decrease quantity in stock when a purchase is made in accordance with what all was purchased 
+checkStock - shows everything in stock
+searchCategory – allows user to pick a genre and then see everything in that genre
+viewAll – displays all books in the database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+III. Menu Information
+
+Before login:
+●	Login
+●	Create Account
+●	Forgot Password
+●	Exit Program
+
+After login:
+●	Search for book
+○	Add Book
+○	Select Category
+○	View All Books
+●	Purchase History
+●	Edit Account Info
+○	Change Password
+○	Change Address
+○	Change Card Info
+○	Change Email
+○	Change Phone Number
+
+●	Cart Information
+○	Go back
+○	View Cart
+○	Remove Item from Cart
+○	Checkout
+○	… 
+●	Delete Account
+●	Exit Program
+
+
+Does your menu cover all requirements given? If not, explain why certain requirements don’t have a distinct menu option?
+
+Yes, but some background processes were left out such as adding to purchase history.
+
+ 
+IV. Information Storage
+
+How is your group storing information?
+
+Include one of these lines of questioning based on your storage schema:
+●	If a database, what kind of database?
+○	How many database tables will you have?
+●	If files, how will your files be format?
+○	How many files are you going to use?
+
+
+Files will be formatted as a CSV. 3 files, user info, inventory, shopping cart.
+
+What information are you going to store in each (table / file depending on schema)?
+
+
+●	Users
+○	First name
+○	Last name
+○	Username
+○	Password
+○	Shipping Address
+○	Phone Number
+○	Email 
+○	Customer ID
+○	Purchase History 
+●	Cart
+○	Item ID (ISBN)
+○	User ID
+○	Quantity
+○	Total Price 
+●	Book
+○	Title
+○	Author
+○	Genre
+○	ISBN
+○	Quantity
+
+
