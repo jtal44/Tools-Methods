@@ -9,11 +9,11 @@ def searchCatagory(category, key):
     global df
     print(df[(df[category] == key)])
 
-def decrease(isbn):
+def decrease(isbn, num):
     global df
     row = df[df['isbn'] == isbn].index[0]
     q = df.at[row, 'quantity']
-    df.iat[row, 4] = q - 1
+    df.iat[row, 4] = q - num
     df.to_csv('book.csv', header=True, index=False)
     print(df)
 
