@@ -1,5 +1,5 @@
-first name,last name,customer id,shipping address,username,password,phone number,email
-Matthew,Robinson,253253,253 Main Street,mbr253,Password253,253253253,mbr253@msstate.edu
-Jaxon,Talbert,524524,524 Main Street,jrt524,Password524,524524524,jrt524@msstate.edu
-Seth,Hazlewood,725725,725 Main Street,sah725,Password725,725725725,sah725@msstate.edu
-Jeremy,Huang,695695,695 Main Street,jbh695,Password695,695695695,jbh695@msstate.edu
+first name,last name,customer id,shipping address,city,state,zip code,username,password,phone number,email,credit card,cvc,expiration date
+Mattehw,Robinson,253253,253 Main Street,Starkville,MS,39759,mbr253,Password253,(253) 253-2530,mbr253@msstate.edu,2.53025E+15,235,Feb-35
+Jaxon,Talbert,524524,524 Main Street,Starkville,MS,39759,jrt524,Password524,(524) 524-5240,jrt524@msstate.edu,5.24052E+15,524,24-May
+Seth,Hazlewood,725725,725 Main Street,Starkville,MS,39759,sah725,Password725,(725) 725-7250,sah725@msstate.edu,7.25073E+15,725,25-Jul
+Jeremy,Huang,695695,695 Main Street,Starkville,MS,39759,jbh695,Password695,(695) 695-6950,jbh695@msstate.edu,9.65097E+15,695,Jun-95
