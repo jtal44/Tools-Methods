@@ -1,4 +1,5 @@
 import pandas as pd
+import random
 
 df = pd.read_csv('customer.csv')
 pd.set_option('display.max_columns', None)
@@ -18,7 +19,7 @@ def setFirstName(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 0] = value
+        df.iat[row, 1] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -37,7 +38,7 @@ def setLastName(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 1] = value
+        df.iat[row, 2] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -253,6 +254,35 @@ def setExpirationDate(key, value):
     except:
         return False
 
+def getPurchaseHistory(key):
+    try:
+        global df
+        row = df[df['customer id'] == key].index[0]
+        column = 14
+        while (column < 23):
+            print(int(df.iat[row, column]), int(df.iat[row, column + 1]))
+            column += 2
+
+    except:
+        return False
+
+def setPurchaseHistory(key, x, y):
+    try:
+        global df
+        row = df[df['customer id'] == key].index[0]
+        column = 14
+        while (column < 23):
+            if (int(df.iat[row, column])): 
+                column +=2
+            else:
+                df.iat[row, column] = x
+                df.iat[row, column + 1] = y
+                df.to_csv('customer.csv', header = True, index = False)
+                return True
+
+    except:
+        return False 
+
 def login(key, value):
     try:
         global df
@@ -272,4 +302,21 @@ def forgotPassword(key):
 
     except:
         return False
+
+def createAccount():
+    global df
+    num = random.randint(100000, 999999)
+    df.loc[df.shape[0]] = [num, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+    df.to_csv('customer.csv', header = True, index = False)
+
+def deleteAccount(key):
+    try:
+        global df
+        row = df[df['customer id'] == key].index[0]
+        df = df.drop(row)
+        df.to_csv('customer.csv', header = True, index = False)
+
+    except:
+        return false
+
 
