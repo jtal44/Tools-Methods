@@ -56,7 +56,7 @@ def setShippingAddress(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 2] = value
+        df.iat[row, 3] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -75,7 +75,7 @@ def setCity(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 3] = value
+        df.iat[row, 4] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -94,7 +94,7 @@ def setState(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 4] = value
+        df.iat[row, 5] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -113,7 +113,7 @@ def setZipCode(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 5] = value
+        df.iat[row, 6] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -133,7 +133,7 @@ def setUsername(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 6] = value
+        df.iat[row, 7] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -152,7 +152,7 @@ def setPassword(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 7] = value
+        df.iat[row, 8] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -171,7 +171,7 @@ def setPhoneNumber(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 8] = value
+        df.iat[row, 9] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -190,7 +190,7 @@ def setEmail(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 9] = value
+        df.iat[row, 10] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -209,7 +209,7 @@ def setCreditCard(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 10] = value
+        df.iat[row, 11] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -228,7 +228,7 @@ def setCVC(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 11] = value
+        df.iat[row, 12] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -247,7 +247,7 @@ def setExpirationDate(key, value):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        df.iat[row, 12] = value
+        df.iat[row, 13] = value
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
@@ -258,7 +258,7 @@ def login(key, value):
         global df
         row = df[df['username'] == key].index[0]
         if (df.at[row, 'password'] == value):
-            return True
+            return df.at[row, 'customer id']
         return False
 
     except:
@@ -272,6 +272,4 @@ def forgotPassword(key):
 
     except:
         return False
-
-
 
