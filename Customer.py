@@ -258,7 +258,7 @@ def getPurchaseHistory(key):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        return int(df.at[row, 'isbn']), int(df.at[row, 'quantity'])
+        print("ISBN:", int(df.at[row, 'isbn']),"\nQuantity:", int(df.at[row, 'quantity']))
 
     except:
         return False

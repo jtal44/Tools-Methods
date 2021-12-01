@@ -139,7 +139,7 @@ def menu2(customer_id):
             search(customer_id)
 
         elif cin == "2":
-            print("Purchase history is in development")
+            getPurchaseHistory(customer_id)
 
         elif cin == "3":
             deleted = account(customer_id)
