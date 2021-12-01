@@ -308,6 +308,6 @@ def deleteAccount(key):
         df.to_csv('customer.csv', header = True, index = False)
 
     except:
-        return false
+        return False
 
 
