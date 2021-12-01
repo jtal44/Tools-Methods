@@ -7,27 +7,21 @@ class Book:
         self.price = price
         self.quantity = quantity
 
-    @property
     def title(self):
         return self.title
 
-    @property
     def author(self):
         return self.author
 
-    @property
     def ISBN(self):
         return self.ISBN
 
-    @property
     def genre(self):
         return self.genre
 
-    @property
     def price(self):
         return self.price
-
-    @property
+    
     def quantity(self):
         return self.quantity
 
