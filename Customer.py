@@ -297,8 +297,9 @@ def forgotPassword(key):
 def createAccount():
     global df
     num = random.randint(100000, 999999)
-    df.loc[df.shape[0]] = [num, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+    df.loc[df.shape[0]] = [num, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
     df.to_csv('customer.csv', header = True, index = False)
+    return df.iat[df.shape[0] - 1, 0]
 
 def deleteAccount(key):
     try:
@@ -309,5 +310,3 @@ def deleteAccount(key):
 
     except:
         return False
-
-
