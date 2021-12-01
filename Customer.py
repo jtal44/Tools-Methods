@@ -258,10 +258,7 @@ def getPurchaseHistory(key):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        column = 14
-        while (column < 23):
-            print(int(df.iat[row, column]), int(df.iat[row, column + 1]))
-            column += 2
+        return int(df.at[row, 'isbn']), int(df.at[row, 'quantity'])
 
     except:
         return False
@@ -270,18 +267,12 @@ def setPurchaseHistory(key, x, y):
     try:
         global df
         row = df[df['customer id'] == key].index[0]
-        column = 14
-        while (column < 23):
-            if (int(df.iat[row, column])): 
-                column +=2
-            else:
-                df.iat[row, column] = x
-                df.iat[row, column + 1] = y
-                df.to_csv('customer.csv', header = True, index = False)
-                return True
+        df.iat[row, 14] = x
+        df.iat[row, 15] = y
+        df.to_csv('customer.csv', header = True, index = False)
 
     except:
-        return False 
+        return False
 
 def login(key, value):
     try:
