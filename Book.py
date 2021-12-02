@@ -21,12 +21,10 @@ class Book:
 
     def price(self):
         return self.price
-    
+
     def quantity(self):
         return self.quantity
 
     def setQuantity(self, num):
         self.quantity = num
         return
-
-

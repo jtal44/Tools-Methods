@@ -15,9 +15,10 @@ stock = [book1, book2, book3, book4, book5]
 
 cart = []
 
+
 def addtoCart(isbn, quantity):
     global cart
-    
+
     i = 0
     while i < 5:
         if isbn == stock[i].ISBN:
@@ -25,17 +26,18 @@ def addtoCart(isbn, quantity):
 
             cartlength = len(cart) - 1
             cart[cartlength].setQuanitity(quantity)
-            
+
             return
-        i+=1
+        i += 1
     print("Could not find ISBN number.  Please try again.")
+
 
 def viewCart():
     global cart
-
+    i = 0
     while i < len(cart):
         print(cart[i].title, cart[i].author, cart[i].price, cart[i].quantity)
-        i=+1
+        i = +1
     return
 
 
@@ -43,29 +45,29 @@ def removefromCart():
     global cart
 
     viewCart()
-    print("Please enter the ISBN number of the item you want to remove.")
-    isbnRem = input()
-    
-    i=0
+    isbnRem = input("Please enter the ISBN number of the item you want to remove: ")
+
+    i = 0
     while i < 5:
-        if isbnRem == stock[i].ISBN
+        if isbnRem == stock[i].ISBN:
             cart.remove(stock[i])
             print("Item has been removed from the cart.")
             return
-        i=+1
+        i = +1
     print("Could not find ISBN number.  Please try again.")
+
 
 def totalPrice():
     global cart
 
-    i=0
+    i = 0
     priceT = 0
     while i < len(cart):
         priceT = priceT + cart[i].price
-        i=+1
+        i = +1
 
     print("Total Price is " + priceT)
-        
+
 
 def checkout():
     global cart
@@ -73,14 +75,12 @@ def checkout():
     viewCart()
     totalPrice()
 
-    while True
-        print("Are you ready to confirm your purchase? Y for yes, N for No.")
-        inputConfirm = input()
+    while True:
+        inputConfirm = input("Are you ready to confirm your purchase? Y for yes, N for No: ")
 
         if inputConfirm == "Y":
             return True
         elif inputConfirm == "N":
             return False
-        else
-            print("Invalid Input. Please try again. (Y/N)")
-    
+        else:
+            print("Invalid Input. Please try again.")

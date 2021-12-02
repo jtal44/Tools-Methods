@@ -1,5 +1,6 @@
 from Inventory import *
 from Customer import *
+from ShoppingCart import *
 
 def search(customer_id):
     while True:
@@ -21,7 +22,10 @@ def search(customer_id):
             searchCatagory(category, key)
 
         elif cin == "3":
-            print("Shopping cart class not made")
+            isbn = input("Enter ISBN of the book you would like to purchase: ")
+            quantity = input("Enter the amount you would like to purchase: ")
+
+            addtoCart(isbn, quantity)
 
         elif cin == "4":
             return
@@ -117,6 +121,47 @@ def account(customer_id):
         elif cin == "8":
             exit()
 
+        else:
+            print("Invalid input please enter the number next to the option you would like to choose!")
+
+def shoppingCart(customer_id):
+    print("\n1. View cart")
+    print("2. Remove item")
+    print("3. Checkout")
+    print("4. Back to previous menu")
+    print("5. exit()")
+    cin = input(">> ")
+
+    if cin == "1":
+        viewCart()
+
+    elif cin == "2":
+        removefromCart()
+
+    elif cin == "3":
+        checkout()
+
+        i = 0
+        while i < len(cart):
+            isbn = cart[i].ISBN
+            quantity = cart[i].quantity
+            check = decrease(isbn, quantity)
+            if check == False:
+                print("One of the items you are trying to purchase is out of stock. Please remove:", isbn)
+                return
+            else:
+                setPurchaseHistory(customer_id, isbn, quantity)
+            i += 1
+
+    elif cin == "4":
+        return
+
+    elif cin == "5":
+        exit()
+
+    else:
+        print("Invalid input please enter the number next to the option you would like to choose!")
+
 def menu2(customer_id):
     if customer_id == False:
         print("Invalid username or password.")
@@ -147,7 +192,7 @@ def menu2(customer_id):
                 return
 
         elif cin == "4":
-            print("shopping cart class is in development")
+            shoppingCart(customer_id)
 
         elif cin == "5":
             return
@@ -155,6 +200,8 @@ def menu2(customer_id):
         elif cin == "6":
             exit()
 
+        else:
+            print("Invalid input please enter the number next to the option you would like to choose!")
 
 df = pd.read_csv('book.csv')
 pd.set_option('display.max_columns', None)
