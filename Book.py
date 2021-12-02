@@ -25,6 +25,8 @@ class Book:
     def quantity(self):
         return self.quantity
 
-
+    def setQuantity(self, num):
+        self.quantity = num
+        return
 
 
